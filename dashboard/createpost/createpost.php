@@ -34,7 +34,8 @@ $query = "INSERT INTO trees (tree_name, price, image, contact_email, stock,locat
 
 // Execute the query
 if (mysqli_query($db, $query)) {
-  echo "New record created successfully";
+  header('location: /dashboard');
+
 } else {
   echo "Error: " . $query . "<br>" . mysqli_error($db);
 }
