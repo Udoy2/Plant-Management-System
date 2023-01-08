@@ -38,6 +38,7 @@ include_once "../database/database.php";
 
             foreach ($trees as $tree) {
                 $updatelink = '/dashboard/updatepost/?id=' . $tree['0'];
+                $detailLink = '/dashboard/post/details.php?tree_id='.$tree['0'];
                 if ($tree['7'] != $_SESSION['user_id']) {
                     $updatelink = '#';
                 }
@@ -54,7 +55,7 @@ include_once "../database/database.php";
                         <div class='footer'>
                             
                             <a href='" . $updatelink . "' class='footer_btn' id='update'>Update</a>
-                            <a href='#' class='footer_btn'>Details</a>
+                            <a href='". $detailLink."' class='footer_btn'>Details</a>
                         </div>
                         </div>
                     

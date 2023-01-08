@@ -29,10 +29,22 @@ if (isset($_FILES['image']) && !empty($_FILES['image']['name'])) {
 
     // Move the uploaded image to the specified directory
     move_uploaded_file($_FILES["image"]["tmp_name"], $upload_dir);
+    // deleting previous iimage..
+
+    $query = "SELECT * FROM trees WHERE id='$id'";
+    $result = mysqli_query($db, $query);
+    $tree = mysqli_fetch_assoc($result);
+    $upload_dir = "../..";
+    
+    $image_full_link = $upload_dir . $tree['image'];
+    unlink($image_full_link);
+   
 
     // Construct the UPDATE query
 
     $query = "UPDATE trees SET tree_name='$tree_name', price='$price', image='$image_location', contact_email='$contact_email', stock='$stock', location='$location' WHERE id='$id'";
+
+    
 
 
 } else {
