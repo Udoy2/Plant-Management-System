@@ -31,8 +31,8 @@ if (isset($_GET['id'])) {
                 </a>
             </div>
             <div class="nav_item">
-                <a href="#">Cart </a>
-                <a href="#"> Profile</a>
+                <a href="/dashboard/cart">Cart </a>
+                <a href="/dashboard/profile/"> Profile</a>
                 <a href="/signout"> Signout</a>
             </div>
         </div>

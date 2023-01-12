@@ -20,11 +20,14 @@
         $current_stock = intval($tree['stock']);
 
         // Insert a new row into the carts table for the tree and user
-        $query = "INSERT INTO carts (user_id,tree_id) VALUES ('$tree_id', '$user_id' )";
+        $query = "INSERT INTO carts (user_id,tree_id) VALUES ('$user_id', '$tree_id' )";
         $result = mysqli_query($db, $query);
 
         // Calculate the new stock of the tree after it has been added to the cart
-        $new_stock = $current_stock - 1;
+        $new_stock = 0;
+        if($current_stock != 0 ){
+            $new_stock = $current_stock - 1;
+        }
 
         // Update the row in the trees table with the new stock value
         $query = "UPDATE trees SET stock='$new_stock' WHERE id = '$tree_id' ";

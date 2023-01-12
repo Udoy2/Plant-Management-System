@@ -12,6 +12,8 @@ foreach ($tree_images as $image) {
 }
 $query = "DELETE  FROM trees WHERE user_id=".$_SESSION['user_id'];
 if (mysqli_query($db, $query)) {
+    $query = "DELETE  FROM carts WHERE user_id=" . $_SESSION['user_id'];
+    mysqli_query($db, $query);
     header('location: /dashboard');
 } else {
     echo "ERROR: Could not able to execute $query. "

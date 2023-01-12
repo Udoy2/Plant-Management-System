@@ -15,7 +15,7 @@ if (isset($_GET['tree_id'])) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Tree Management System</title>
     <link rel="stylesheet" href="../../assets/css/dashboard.css" />
 </head>
 
@@ -28,8 +28,8 @@ if (isset($_GET['tree_id'])) {
                 </a>
             </div>
             <div class="nav_item">
-                <a href="#">Cart </a>
-                <a href="#"> Profile</a>
+                <a href="/dashboard/cart">Cart </a>
+                <a href="/dashboard/profile/"> Profile</a>
                 <a href="/signout"> Signout</a>
             </div>
         </div>

@@ -9,7 +9,7 @@ include_once "../database/database.php";
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Tree Management System</title>
     <link rel="stylesheet" href="../assets/css/dashboard.css" />
 </head>
 
@@ -22,8 +22,8 @@ include_once "../database/database.php";
                 </a>
             </div>
             <div class="nav_item">
-                <a href="#">Cart </a>
-                <a href="#"> Profile</a>
+                <a href="/dashboard/cart">Cart </a>
+                <a href="/dashboard/profile/"> Profile</a>
                 <a href="/signout"> Signout</a>
             </div>
         </div>
@@ -38,7 +38,7 @@ include_once "../database/database.php";
 
             foreach ($trees as $tree) {
                 $updatelink = '/dashboard/updatepost/?id=' . $tree['0'];
-                $detailLink = '/dashboard/post/details.php?tree_id='.$tree['0'];
+                $detailLink = '/dashboard/post/details.php?tree_id=' . $tree['0'];
                 if ($tree['7'] != $_SESSION['user_id']) {
                     $updatelink = '#';
                 }
@@ -54,8 +54,8 @@ include_once "../database/database.php";
                         </div>
                         <div class='footer'>
                             
-                            <a href='" . $updatelink . "' class='footer_btn' id='update'>Update</a>
-                            <a href='". $detailLink."' class='footer_btn'>Details</a>
+                            <a href='" . $updatelink . "' class='footer_btn update' >Update</a>
+                            <a href='" . $detailLink . "' class='footer_btn'>Details</a>
                         </div>
                         </div>
                     
@@ -66,18 +66,26 @@ include_once "../database/database.php";
         <section class="sidebar">
             <div>
                 <div class="mb-2"><a href="/dashboard/createpost/" class="btn">Create Post</a></div>
-                <div><a href="/dashboard/delete/delete.php" class="btn">Delete Post</a></div>
+                <div><a class="btn" href="#" onclick="deletePost('/dashboard/delete/delete.php')">Delete Post</a></div>
             </div>
         </section>
     </main>
 
     <script>
-        const update = document.getElementById('update');
-        update.addEventListener('click', (e) => {
-            if (e.target.href === 'http://localhost/dashboard/#'){
-                alert("you are unauthorized to updated the post");
+        const updateButtons = document.querySelectorAll('.update');
+        updateButtons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                if (e.target.href === 'http://localhost/dashboard/#') {
+                    alert("you are unauthorized to updated the post");
+                }
+            })
+        });
+
+        const deletePost = (link) =>{
+            if(confirm("Are you sure you want to delete all of your post? ")){
+                window.location = link;
             }
-        })
+        }
     </script>
 </body>
 

@@ -23,6 +23,7 @@
             </form>
             <?php
                 include_once "../middleware/errorViewer.php";
+                session_start();
                 errorViewer();
             ?>
         </div>

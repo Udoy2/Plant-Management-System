@@ -1,5 +1,9 @@
 <?php
 include_once "../../middleware/auth.php";
+include_once "../../database/database.php";
+$query = "SELECT * FROM users WHERE id=" . $_SESSION['user_id'];
+$result = mysqli_query($db, $query);
+$user = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -32,16 +36,13 @@ include_once "../../middleware/auth.php";
     </nav>
     <div class="container">
         <div class="form">
-            <h2>Create a new post</h2>
-            <form action="createpost.php" method="post" enctype="multipart/form-data">
-                <input type="text" id="tree_name" name="tree_name" placeholder="Tree name"><br>
-                <input type="text" id="price" name="price" placeholder="Price"><br>
-                <input type="text" id="contact_email" name="contact_email" placeholder="Contact Email"><br>
-                <input type="text" id="stock" name="stock" placeholder="Stock"><br><br>
-                <input type="text" id="location" name="location" placeholder="Location"><br><br>
-                <input type="file" id="image" name="image"><br>
-                <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
-                <input type="submit" value="Submit" class="button">
+            <h2>Update Your Account</h2>
+            <form method="post" action="./updateProfile.php">
+                <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+                <input type="text" name="name" placeholder="Name.." value="<?php echo $user['name']; ?>" />
+                <input type="text" name="email" placeholder="Email.." value="<?php echo $user['email']; ?>" />
+                <input type="password" name="password" placeholder="Password" />
+                <input type="submit" name="signup" value="Sign Up" class="button" />
 
 
             </form>

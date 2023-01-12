@@ -13,7 +13,7 @@ function validate($email, $password)
 
     // Validate the password (minimum 8 characters, at least 1 letter and 1 number)
     if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/", $password)) {
-        $errors[] = "Invalid password";
+        $errors[] = "Your password must be at least 8 characters long and contain at least 1 letter and 1 number.";
         $_SESSION['errors'] = $errors;
         $return_bool = false;
     }
