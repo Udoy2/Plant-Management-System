@@ -3,8 +3,10 @@
 Plant Management system is a php system for plant lovers to buy and sell plant. 
 
 ## Demos
-
+### Login Page
 ![Login Page](https://github.com/Udoy2/Plant-Management-System/blob/master/assets/screenshot/loginPage.png)
+
+### Dashboard
 ![Dashboard Page](https://github.com/Udoy2/Plant-Management-System/blob/master/assets/screenshot/Dashboard.png)
 
 ## Contributing
