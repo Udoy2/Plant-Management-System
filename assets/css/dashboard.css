@@ -19,6 +19,12 @@ nav {
   margin-bottom: 2rem;
 }
 
+.nav_item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .nav_item > a{
   color: teal;
   text-decoration: none;
@@ -29,6 +35,25 @@ nav {
 
 .nav_item > a:hover{
   color: rgb(0, 88, 88);
+}
+
+/* input field */
+.search_field{
+  border: 1px solid rgb(209, 209, 209);
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+.search_input{
+  border: none;
+}
+
+.search_input:focus{
+  outline: none;
+}
+
+.search_icon{
+  color: teal;
+  cursor: pointer;
 }
 .nav_container {
   width: 80%;

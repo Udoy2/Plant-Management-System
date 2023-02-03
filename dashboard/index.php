@@ -11,6 +11,7 @@ include_once "../database/database.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tree Management System</title>
     <link rel="stylesheet" href="../assets/css/dashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -22,6 +23,14 @@ include_once "../database/database.php";
                 </a>
             </div>
             <div class="nav_item">
+                <div class="nav_search">
+                    <form action="/dashboard/search/search.php" method="get">
+                        <div class="search_field">
+                            <input type="text" name="search" class="search_input" placeholder="Search post..">
+                            <i class="fa-solid fa-magnifying-glass search_icon"></i>
+                        </div>
+                    </form>
+                </div>
                 <a href="/dashboard/cart">Cart </a>
                 <a href="/dashboard/profile/"> Profile</a>
                 <a href="/signout"> Signout</a>
@@ -33,6 +42,11 @@ include_once "../database/database.php";
         <section class="main">
             <?php
             $query = "SELECT * FROM trees";
+            if(!empty($_GET['search'])){
+                $search = $_GET['search'];
+                $query = "SELECT * FROM trees WHERE tree_name LIKE '%$search%'";
+
+            }
             $result = mysqli_query($db, $query);
             $trees = mysqli_fetch_all($result);
 
@@ -48,6 +62,7 @@ include_once "../database/database.php";
                         <div class='img'>
                             <img src='" . $tree['3'] . "' alt='tree' srcset='' />
 
+                            <p class='tree_count'>Name: " . $tree['1'] . "tk</p>
                             <p class='tree_count'>Price: " . $tree['2'] . "tk</p>
                             <a class='tree_count'>Stock: " . $tree['5'] . "</a>
 
@@ -81,8 +96,8 @@ include_once "../database/database.php";
             })
         });
 
-        const deletePost = (link) =>{
-            if(confirm("Are you sure you want to delete all of your post? ")){
+        const deletePost = (link) => {
+            if (confirm("Are you sure you want to delete all of your post? ")) {
                 window.location = link;
             }
         }

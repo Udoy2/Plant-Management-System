@@ -42,7 +42,7 @@ $user = mysqli_fetch_assoc($result);
                 <input type="text" name="name" placeholder="Name.." value="<?php echo $user['name']; ?>" />
                 <input type="text" name="email" placeholder="Email.." value="<?php echo $user['email']; ?>" />
                 <input type="password" name="password" placeholder="Password" />
-                <input type="submit" name="signup" value="Sign Up" class="button" />
+                <input type="submit" name="signup" value="Update Profile" class="button" />
 
 
             </form>
