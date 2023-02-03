@@ -2,6 +2,10 @@
 
 Plant Management system is a php system for plant lovers to buy and sell plant. 
 
+## Setup
+Firstly setup database.
+there is a sql file in db_backup folder. create a new db named tree_management and import the tree_management.sql file there. and set the username and password
+
 ## Demos
 ### Login Page
 ![Login Page](https://github.com/Udoy2/Plant-Management-System/blob/master/assets/screenshot/loginPage.png)
