@@ -28,9 +28,9 @@ A PHP web application with secure login, middleware, MySQL database, and HTML/CS
    cd Plant-Management-System
    ```
 
-2. Import the database schema (`plants.sql`) into your MySQL database.
+2. Import the database schema (`/db_backup/tree_management.sql`) into your MySQL database.
 
-3. Configure the database connection in `config.php`.
+3. Configure the database connection in `/database/database.php`.
 
 4. Upload the project files to your web server or run locally using a server like XAMPP.
 
